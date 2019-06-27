@@ -708,8 +708,10 @@ def get_employment_education(county=None, file_spec=None, data_dir=None, paths=N
     """
     if file_spec is None:
         file_spec = 'EmploymentEducation.csv'
+    
+    metadata = get_metadata_dict(metadata_file, metadata_update=metadata_update)
 
-    df_wide = read_entry_exit_table(metadata_file, county=county,
+    df_wide = read_entry_exit_table(metadata, county=county,
                                     file_spec=file_spec, data_dir=data_dir,
                                     paths=paths)
 
