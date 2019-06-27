@@ -922,7 +922,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
                             file_spec=files.get('enrollment', None),
                             metadata_file=meta_files.get('enrollment', None),
                             groups=groups, data_dir=data_dir,
-                            paths=paths)
+                            paths=paths,
+                            metadata_update = table_metadata_update['enrollment'])
     print('enroll n_rows:', len(enroll))
     enrollment_metadata = get_metadata_dict(meta_files.get('enrollment',
                                             METADATA_FILES['enrollment']),
