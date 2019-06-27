@@ -936,7 +936,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
     # Merge exit in
     exit_table = get_exit(county=county, file_spec=files.get('exit', None),
                           metadata_file=meta_files.get('exit', None),
-                          data_dir=data_dir, paths=paths)
+                          data_dir=data_dir, paths=paths,
+                          metadata_update=table_metadata_update['exit'])
     print('exit n_rows:', len(exit_table))
     exit_metadata = get_metadata_dict(meta_files.get('exit',
                                       METADATA_FILES['exit']),
