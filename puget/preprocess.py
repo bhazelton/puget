@@ -690,7 +690,8 @@ get_disabilities.__doc__ = get_disabilities.__doc__ % (file_path_boilerplate,
 
 
 def get_employment_education(county=None, file_spec=None, data_dir=None, paths=None,
-                             metadata_file=METADATA_FILES['employment_education']):
+                             metadata_file=METADATA_FILES['employment_education'],
+                             metadata_update=None):
     """
     Read in the raw EmploymentEducation tables.
 
@@ -719,7 +720,8 @@ get_employment_education.__doc__ = get_employment_education.__doc__ % (
 
 
 def get_health_dv(county=None, file_spec=None, data_dir=None, paths=None,
-                  metadata_file=METADATA_FILES['health_dv']):
+                  metadata_file=METADATA_FILES['health_dv'],
+                  metadata_update=None):
     """
     Read in the raw HealthAndDV tables.
 
@@ -1034,7 +1036,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
                                     file_spec=files.get('disabilities', None),
                                     metadata_file=meta_files.get('disabilities', None),
                                     data_dir=data_dir,
-                                    paths=paths)
+                                    paths=paths,
+                                    metadata_update=table_metadata_update['disabilities'])
     print('disabilities n_rows:', len(disabilities))
     disabilities_metadata = get_metadata_dict(meta_files.get('disabilities',
                                               METADATA_FILES['disabilities']),
@@ -1052,7 +1055,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
     emp_edu = get_employment_education(county=county,
                                        file_spec=files.get('employment_education', None),
                                        metadata_file=meta_files.get('employment_education', None),
-                                       data_dir=data_dir, paths=paths)
+                                       data_dir=data_dir, paths=paths,
+                                       metadata_update=table_metadata_update['employment_education'])
     print('emp_edu n_rows:', len(emp_edu))
     emp_edu_metadata = get_metadata_dict(meta_files.get('employment_education',
                                          METADATA_FILES['employment_education']),
@@ -1070,7 +1074,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
     health_dv = get_health_dv(county=county,
                               file_spec=files.get('health_dv', None),
                               metadata_file=meta_files.get('health_dv', None),
-                              data_dir=data_dir, paths=paths)
+                              data_dir=data_dir, paths=paths,
+                              metadata_update=table_metadata_update['health_dv'])
     print('health_dv n_rows:', len(health_dv))
     health_dv_metadata = get_metadata_dict(meta_files.get('health_dv',
                                            METADATA_FILES['health_dv']),
@@ -1087,7 +1092,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
     # Merge income in
     income = get_income(county=county, file_spec=files.get('income', None),
                         metadata_file=meta_files.get('income', None),
-                        data_dir=data_dir, paths=paths)
+                        data_dir=data_dir, paths=paths,
+                        metadata_update=table_metadata_update['income'])
     print('income n_rows:', len(income))
     income_metadata = get_metadata_dict(meta_files.get('income',
                                         METADATA_FILES['income']),
@@ -1104,7 +1110,8 @@ def merge_tables(county=None, meta_files=METADATA_FILES, data_dir=None,
     # Merge project in
     project = get_project(county=county, file_spec=files.get('project', None),
                           metadata_file=meta_files.get('project', None),
-                          data_dir=data_dir, paths=paths)
+                          data_dir=data_dir, paths=paths,
+                          metadata_update=table_metadata_update['project'])
     print('project n_rows:', len(project))
     project_metadata = get_metadata_dict(meta_files.get('project',
                                          METADATA_FILES['project']),
