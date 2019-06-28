@@ -57,7 +57,8 @@ METADATA_FILES = {'enrollment': 'enrollment.json',
                   'employment_education': 'employment_education.json',
                   'health_dv': 'health_dv.json',
                   'income': 'income.json',
-                  'project': 'project.json'}
+                  'project': 'project.json',
+                  'update': 'update_table.json'}
 
 for k, v in METADATA_FILES.items():
     METADATA_FILES[k] = op.join(DATA_PATH, 'metadata', v)

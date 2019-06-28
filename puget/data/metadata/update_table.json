@@ -1,0 +1,43 @@
+{
+"name": "update_table",
+
+"enrollment": {"person_enrollment_ID": "EnrollmentID",
+               "duplicate_check_columns": ["EnrollmentID", "PersonalID",
+               "ProjectID", "HouseholdID"],
+               "categorical_var":["LivingSituation", "LengthOfStay"]},
+
+"exit": {"person_enrollment_ID": "EnrollmentID",
+         "duplicate_check_columns": ["EnrollmentID"]},
+
+"disabilities": {"person_enrollment_ID": "EnrollmentID",
+                 "duplicate_check_columns":["EnrollmentID", "DataCollectionStage",
+                 "DisabilityType", "DisabilityResponse"]},
+
+"employment_education": {"person_enrollment_ID": "EnrollmentID",
+                         "duplicate_check_columns":["EnrollmentID", "Employed", 
+                         "DataCollectionStage"]},
+
+"health_dv": {"person_enrollment_ID": "EnrollmentID",
+              "duplicate_check_columns":["EnrollmentID", "DomesticViolenceVictim",
+              "GeneralHealthStatus", "PregnancyStatus",
+              "DataCollectionStage"]},
+                 
+"income": {"person_enrollment_ID": "EnrollmentID",
+            "duplicate_check_columns":["EnrollmentID", "IncomeFromAnySource",
+            "TotalMonthlyIncome", "Earned", "EarnedAmount",
+            "TANF", "TANFAmount", "GA", "GAAmount",
+            "ChildSupport", "ChildSupportAmount",
+            "BenefitsFromAnySource", "SNAP", "WIC",
+            "TANFChildCare","InsuranceFromAnySource",
+            "Medicaid", "Medicare", "SCHIP",
+            "DataCollectionStage"],
+            "categorical_var":["IncomeFromAnySource", "Earned", "TANF", "GA",
+            "ChildSupport", "BenefitsFromAnySource", "SNAP", "WIC",
+            "TANFChildCare", "InsuranceFromAnySource",
+            "Medicaid", "Medicare", "SCHIP"],
+            "columns_to_take_max":["IncomeFromAnySource", "TotalMonthlyIncome", "Earned",
+            "EarnedAmount", "TANF", "TANFAmount", "GA", "GAAmount",
+            "ChildSupport", "ChildSupportAmount", "BenefitsFromAnySource",
+            "SNAP", "WIC", "TANFChildCare", "InsuranceFromAnySource", "Medicaid",
+            "Medicare", "SCHIP"]}
+    }
